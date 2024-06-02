@@ -7,8 +7,12 @@ h1 {
   color: white;
 }
 
+h2 {
+  color: white;
+}
+
 .main {
-  width: 800px;
+  width: 600px;
   margin: auto;
 }
 
@@ -19,6 +23,6 @@ h1 {
   background-color: gray;
 }
 
-.game-section h2 {
-  margin: 0px;
+.game-section h3 {
+  margin: 0px 0px 10px 0px;
 }
