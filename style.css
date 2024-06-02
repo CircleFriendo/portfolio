@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  color: white;
 }
 
 h1 {
@@ -20,7 +21,7 @@ h2 {
   width: 600px;
   margin: 10px auto;
   padding: 20px;
-  background-color: gray;
+  background-color: SlateGray;
 }
 
 .game-section h3 {
