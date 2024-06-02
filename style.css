@@ -4,7 +4,11 @@ h1 {
 
 .game-section {
   width: 600px;
-  margin: 100px;
+  margin: 10px 100px 10px 100px;
   padding: 20px;
   background-color: gray;
+}
+
+.game-section h2 {
+  padding: 0px;
 }
