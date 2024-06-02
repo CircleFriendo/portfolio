@@ -1,5 +1,10 @@
 h1 {
-  text-align: center;
+  text-align: left;
+}
+
+.main {
+  width: 800px;
+  margin: auto;
 }
 
 .game-section {
