@@ -12,8 +12,10 @@ h2 {
   color: white;
 }
 
-img {
-  margin: auto;
+img.center {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .main {
