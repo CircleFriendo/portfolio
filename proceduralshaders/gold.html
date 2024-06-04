@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="shaders/gold.js" type="text/javascript"></script>
+<script src="js/webgl.js" type="text/javascript"></script>
+<script src="utils/m4.js" type="text/javascript"></script>
+<script src="utils/loadMeshData.js" type="text/javascript"></script>
+<script src="resources/cubesphere-data.js" type="text/javascript"></script>
+</head>
+<body bgcolor="black">
+
+<canvas id="c" width="600" height="600"></canvas>
+
+<script>
+var canvas = document.querySelector("#c");
+var gl = canvas.getContext("webgl");
+
+var aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
+
+var cameraMatrix = m4.yRotation(Math.PI);
+cameraMatrix = m4.translate(cameraMatrix, 0, 0, 2);
+var viewMatrix = m4.inverse(cameraMatrix);
+var projectionMatrix = m4.perspective(90/180 * Math.PI, aspect, 1, 200);
+var viewProjectionMatrix = m4.multiply(projectionMatrix, viewMatrix);
+var matrix = viewProjectionMatrix;
+
+var program = webgl.compileProgram(gl, get3DSource());
+
+var matrixLocation = gl.getUniformLocation(program, "u_matrix");
+var colorLocation = gl.getUniformLocation(program, "u_color");
+var lightLocation = gl.getUniformLocation(program, "u_light");
+var viewLocation = gl.getUniformLocation(program, "u_view");
+
+var meshData = loadMeshData(cubesphereData);
+var count = meshData.vertexCount;
+var positions = meshData.vertices;
+var uvs = meshData.uvs;
+var normals = meshData.normals;
+
+var position = webgl.attribute(gl, program, "a_position", 3, positions);
+var uv = webgl.attribute(gl, program, "a_uv", 2, uvs);
+var normal = webgl.attribute(gl, program, "a_normal", 3, normals);
+
+// render
+webgl.initializeProgram(gl, program);
+webgl.bindAttribute(gl, position);
+webgl.bindAttribute(gl, uv);
+webgl.bindAttribute(gl, normal);
+gl.uniformMatrix4fv(matrixLocation, false, matrix);
+gl.uniform4fv(colorLocation, [212/255, 175/255, 55/255,1]);
+gl.uniform3fv(lightLocation, [1, 1, -1]);
+gl.uniform3fv(viewLocation, [0, 0, -2]);
+webgl.draw(gl, count);
+
+</script>
+</body>
+</html>
