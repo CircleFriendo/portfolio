@@ -1,23 +1,18 @@
 body {
   background-color: black;
-  color: white;
+  color: White;
 }
 
 a:link {
-  color: Blue;
+  color: DeepSkyBlue;
 }
 
 a:visited {
-  color: RebeccaPurple;
+  color: PowderBlue;
 }
 
 h1 {
   text-align: left;
-  color: white;
-}
-
-h2 {
-  color: white;
 }
 
 .game-section img {
