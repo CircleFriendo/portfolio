@@ -4,11 +4,11 @@ body {
 }
 
 a:link {
-  color: LightSkyBlue;
+  color: Blue;
 }
 
 a:visited {
-  color: MediumPurple;
+  color: RebeccaPurple;
 }
 
 h1 {
