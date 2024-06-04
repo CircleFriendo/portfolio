@@ -3,8 +3,12 @@ body {
   color: white;
 }
 
+a:link {
+  color: LightSkyBlue;
+}
+
 a:visited {
-  color: DarkViolet;
+  color: MediumPurple;
 }
 
 h1 {
